@@ -13,7 +13,7 @@ namespace PauseManagement.Editor
 		/// <summary>
 		/// Scripting Define Symbol for Unity's Input System
 		/// </summary>
-		private const string INPUT_SYSTEM_PRESENT_DEFINE = "PAUSE_MANAGER_INPUT_SYSTEM";
+		private const string INPUT_SYSTEM_DEFINE = "PAUSE_MANAGER_INPUT_SYSTEM";
 
 		private static readonly List<string> Symbols = new List<string>();
 
@@ -28,7 +28,7 @@ namespace PauseManagement.Editor
 #if UNITY_EDITOR
 		static PauseManagerSetup()
 		{
-			CheckPackagePresency("com.unity.inputsystem", INPUT_SYSTEM_PRESENT_DEFINE);
+			CheckPackagePresency("com.unity.inputsystem", INPUT_SYSTEM_DEFINE);
 		}
 #endif
 

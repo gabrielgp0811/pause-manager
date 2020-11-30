@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-#if ENABLE_INPUT_SYSTEM && PAUSE_MANAGER_INPUT_SYSTEM
+#if PAUSE_MANAGER_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
 
@@ -38,7 +38,7 @@ namespace PauseManagement.Core
 		/// </summary>
 		public bool useUnityInputSystem = false;
 
-#if ENABLE_INPUT_SYSTEM && PAUSE_MANAGER_INPUT_SYSTEM
+#if PAUSE_MANAGER_INPUT_SYSTEM
 		/// <summary>
 		/// The pause's input action
 		/// </summary>
@@ -99,7 +99,7 @@ namespace PauseManagement.Core
 		// Awake is called before Start function
 		void Awake()
 		{
-#if ENABLE_INPUT_SYSTEM && PAUSE_MANAGER_INPUT_SYSTEM
+#if PAUSE_MANAGER_INPUT_SYSTEM
 			if (useUnityInputSystem)
 			{
 				if (useActionReference && pauseActionReference)
@@ -119,7 +119,7 @@ namespace PauseManagement.Core
 		// This function is called when the object becomes enabled and active
 		void OnEnable()
 		{
-#if ENABLE_INPUT_SYSTEM && PAUSE_MANAGER_INPUT_SYSTEM
+#if PAUSE_MANAGER_INPUT_SYSTEM
 			pauseAction.Enable();
 #endif
 		}
@@ -127,7 +127,7 @@ namespace PauseManagement.Core
 		// This function is called when the behaviour becomes disabled.
 		void OnDisable()
 		{
-#if ENABLE_INPUT_SYSTEM && PAUSE_MANAGER_INPUT_SYSTEM
+#if PAUSE_MANAGER_INPUT_SYSTEM
 			pauseAction.Disable();
 #endif
 		}

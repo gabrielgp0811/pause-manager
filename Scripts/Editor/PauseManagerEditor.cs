@@ -23,7 +23,7 @@ namespace PauseManagement.Editor
 		SerializedProperty propertyFromPrefsProp;
 		SerializedProperty onPauseEventProp;
 		SerializedProperty onResumeEventProp;
-#if ENABLE_INPUT_SYSTEM && PAUSE_MANAGER_INPUT_SYSTEM
+#if PAUSE_MANAGER_INPUT_SYSTEM
 		SerializedProperty pauseActionProp;
 		SerializedProperty useActionReferenceProp;
 		SerializedProperty pauseActionReferenceProp;
@@ -45,7 +45,7 @@ namespace PauseManagement.Editor
 			propertyFromPrefsProp = serializedObject.FindProperty("propertyFromPrefs");
 			onPauseEventProp = serializedObject.FindProperty("pauseEvent");
 			onResumeEventProp = serializedObject.FindProperty("resumeEvent");
-#if ENABLE_INPUT_SYSTEM && PAUSE_MANAGER_INPUT_SYSTEM
+#if PAUSE_MANAGER_INPUT_SYSTEM
 			pauseActionProp = serializedObject.FindProperty("pauseAction");
 			useActionReferenceProp = serializedObject.FindProperty("useActionReference");
 			pauseActionReferenceProp = serializedObject.FindProperty("pauseActionReference");
@@ -103,7 +103,7 @@ namespace PauseManagement.Editor
 
 				if (useUnityInputSystemProp.boolValue)
 				{
-#if ENABLE_INPUT_SYSTEM && PAUSE_MANAGER_INPUT_SYSTEM
+#if PAUSE_MANAGER_INPUT_SYSTEM
 					EditorGUILayout.BeginHorizontal();
 					useActionReferenceProp.boolValue = EditorGUILayout.Toggle(new GUIContent("Use reference?", "Use Input Action Asset's reference ?"), useActionReferenceProp.boolValue);
 					EditorGUILayout.EndHorizontal();
