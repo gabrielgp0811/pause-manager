@@ -1,0 +1,224 @@
+[gd_scene load_steps=6 format=3 uid="uid://csiuol8oyqstt"]
+
+[ext_resource type="Script" path="res://pause-manager/examples/scripts/example_scene.gd" id="1_aviqf"]
+[ext_resource type="PackedScene" uid="uid://cd5tolsiqaeo7" path="res://pause-manager/prefabs/pause_manager.tscn" id="2_1fhy1"]
+[ext_resource type="Script" path="res://pause-manager/examples/scripts/rotation.gd" id="2_5ace7"]
+[ext_resource type="PackedScene" uid="uid://dxyr3dofhsynm" path="res://pause-manager/prefabs/pause_event_handler.tscn" id="4_7r1f8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4umw"]
+
+[node name="Example Scene" type="CanvasLayer"]
+script = ExtResource("1_aviqf")
+
+[node name="PauseManager" parent="." instance=ExtResource("2_1fhy1")]
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "PAUSE MANAGER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 60.0
+offset_right = 128.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Left" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -132.0
+offset_right = -256.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_e4umw")
+script = ExtResource("2_5ace7")
+
+[node name="Center" type="Panel" parent="." groups=["pausable"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -132.0
+offset_right = 64.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_e4umw")
+script = ExtResource("2_5ace7")
+
+[node name="Right" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = -132.0
+offset_right = 384.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+theme_override_styles/panel = SubResource("StyleBoxFlat_e4umw")
+script = ExtResource("2_5ace7")
+
+[node name="PauseEventHandler" parent="Right" instance=ExtResource("4_7r1f8")]
+
+[node name="InfoLabel" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -264.0
+offset_right = 448.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Press 'Escape' key to Pause/Resume
+
+The 'Center' box is in a group called 'pausable'.
+
+The 'Right' box is handled by 'PauseEventHandler' node.
+
+When Pause Tree is 'false', only nodes in 'pausable' group, when Pause Groups is 'true', and nodes handled by 'PauseEventHandler', when Use Event Handlers is 'true', are affected."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PauseTreeLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -176.0
+offset_right = 48.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+text = "Pause Tree:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PauseTreeCheckBox" type="CheckBox" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -176.0
+offset_right = 72.0
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PauseGroupLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -144.0
+offset_right = 48.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+text = "Pause Group:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PauseGroupCheckBox" type="CheckBox" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -144.0
+offset_right = 72.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PauseEventHandlerLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -112.0
+offset_right = 48.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+text = "Use Event Handlers:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PauseEventHandlerCheckBox" type="CheckBox" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -112.0
+offset_right = 72.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Change Scene Button" type="Button" parent="."]
+process_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -136.0
+offset_right = -128.0
+offset_bottom = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Pause Menu Scene"
+
+[connection signal="toggle" from="PauseManager" to="." method="_on_pause_manager_toggle"]
+[connection signal="toggle" from="Right/PauseEventHandler" to="Right" method="_on_pause_event_handler_toggle"]
+[connection signal="toggled" from="PauseTreeCheckBox" to="." method="_on_pause_tree_check_box_toggled"]
+[connection signal="toggled" from="PauseGroupCheckBox" to="." method="_on_pause_group_check_box_toggled"]
+[connection signal="toggled" from="PauseEventHandlerCheckBox" to="." method="_on_pause_event_handler_check_box_toggled"]
+[connection signal="pressed" from="Change Scene Button" to="." method="_on_change_scene_button_pressed"]

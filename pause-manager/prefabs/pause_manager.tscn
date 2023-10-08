@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd5tolsiqaeo7"]
+
+[ext_resource type="Script" path="res://pause-manager/scripts/pause_manager.gd" id="1_wdn7o"]
+
+[node name="PauseManager" type="Node2D"]
+process_mode = 3
+editor_description = "Pause Tree:
+	When 'true', the property 'get_tree().paused' will be changed to 'true' when paused and changed to 'false' when resumed.
+
+Pause Groups:
+	When 'true', the 'pause' and 'resume' functions defined in scripts of all Nodes belonging from 'groups' Array below will be triggered.
+
+Groups:
+	Array of groups to pause/resume a Node. Used when 'pause_tree' is 'false'.
+
+Use Event Handlers:
+	When 'true', the 'pause' and 'resume' functions from 'PauseEventHandler' will be triggered.
+
+Use Input Map:
+	Use actions from Input Map? (Project -> Project Settings -> Input Map).
+	By default, there's only one action with the name 'pause'.
+
+Action Names:
+	Action names from Input Map (Project -> Project Settings -> Input Map).
+	By default, there's only one action with the name 'pause'.
+
+Keys:
+	Array of keys, when Input Map is not needed.
+	By default, there's only the 'Escape' key from keyboard."
+script = ExtResource("1_wdn7o")

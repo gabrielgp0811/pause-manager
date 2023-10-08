@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxyr3dofhsynm"]
+
+[ext_resource type="Script" path="res://pause-manager/scripts/pause_event_handler.gd" id="1_23q5c"]
+
+[node name="PauseEventHandler" type="Node"]
+process_mode = 3
+script = ExtResource("1_23q5c")
